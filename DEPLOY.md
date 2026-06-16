@@ -1,8 +1,31 @@
-# Vercel Deployment Guide
+# Deploy to GitHub + Vercel
 
-Follow these steps after the code is pushed to GitHub.
+## Step 0 — Push to GitHub (one-time)
 
-## 1. Import project on Vercel
+Your code is committed locally. The remote is already set to:
+
+`https://github.com/Kaif-Anwar/my-portfolio.git`
+
+### Create the private repo on GitHub
+
+1. Go to [github.com/new](https://github.com/new)
+2. Repository name: **`my-portfolio`**
+3. Visibility: **Private**
+4. Do **not** add README, .gitignore, or license (code already exists locally)
+5. Click **Create repository**
+
+### Push from your PC
+
+```powershell
+cd "d:\Extra Projects\My Portfolio"
+git push -u origin main
+```
+
+Sign in with GitHub if prompted. Verify at: `https://github.com/Kaif-Anwar/my-portfolio`
+
+---
+
+## Step 1 — Import project on Vercel
 
 1. Go to [vercel.com/new](https://vercel.com/new)
 2. Sign in with **GitHub**
@@ -11,7 +34,7 @@ Follow these steps after the code is pushed to GitHub.
 5. Framework: **Next.js** (auto-detected)
 6. Root directory: `./` (default)
 
-## 2. Add environment variables
+## Step 2 — Add environment variables
 
 Before deploying (or immediately after import), go to **Environment Variables** and add **all 7** variables.
 
@@ -31,18 +54,18 @@ Copy the values from your local `.env.local` file (same names, same values).
 - Never paste these values into GitHub or commit them to the repo
 - `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_PASSWORD`, and `ADMIN_SESSION_SECRET` are server-only
 
-## 3. Deploy
+## Step 3 — Deploy
 
 Click **Deploy**. First build takes ~1–2 minutes.
 
-## 4. Verify live site
+## Step 4 — Verify live site
 
 1. Open your Vercel URL (e.g. `https://my-portfolio-xxx.vercel.app`)
 2. Confirm homepage loads with projects from Supabase
 3. Visit `/admin/login` and sign in with `ADMIN_EMAIL` + `ADMIN_PASSWORD`
 4. Save a test edit in the admin panel
 
-## 5. If you deployed without env vars first
+## Step 5 — If you deployed without env vars first
 
 Go to **Settings → Environment Variables**, add all 7 vars, then **Deployments → Redeploy** the latest deployment.
 
